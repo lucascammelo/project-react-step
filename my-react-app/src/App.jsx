@@ -1,12 +1,14 @@
+
 import React from 'react';
-import Welcome from './components/Welcome';
+import PlacarDoJogo from './components/PlacarDoJogo';
 
 function App() {
   return (
     <div>
-      <Welcome name="Fabio" />
+      <PlacarDoJogo />
     </div>
   );
 }
 
 export default App;
+          
