@@ -1,14 +1,12 @@
-
 import React from 'react';
-import PlacarDoJogo from './components/PlacarDoJogo';
+import Pai from './components/Pai';
 
 function App() {
   return (
     <div>
-      <PlacarDoJogo />
+      <Pai />
     </div>
   );
 }
 
 export default App;
-          
