@@ -1,16 +1,14 @@
 
-import Usuarios from './components/aula08/Usuarios';
-import Posts from './components/aula08/Posts';
-import ListaUsuarios from './components/aula08/ListaUsuarios';
+import RegistrationForm from "./components/aula09/RegistrationForm";
+
 function App() {
   return (
     <div>
-      <h1>JSONPlaceholder App</h1>
-      <Usuarios />
-      <Posts />
-      <ListaUsuarios />
+      <h1>Formulário de Cadastro</h1>
+      <RegistrationForm />
     </div>
   );
 }
+
 export default App;
           
