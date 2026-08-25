@@ -11,8 +11,8 @@ const Pai = () => {
   return (
     <div>
       <h2>Componente Pai</h2>
-      <p>Dados recebidos do filho: {dadosDoFilho}</p>
-      <Filho message="Olá do Pai!" sendDataToParent={receberDados} />
+      <p>Dados recebidos do filho:  {dadosDoFilho}</p>
+      <Filho message="Olá do Paiii!" sendDataToParent={receberDados} />
     </div>
   );
 };

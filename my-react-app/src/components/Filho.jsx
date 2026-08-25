@@ -4,7 +4,7 @@ const Filho = ({ message, sendDataToParent }) => {
   return (
     <div>
       <p>Mensagem do pai: {message}</p>
-      <button onClick={() => sendDataToParent('Dados do Filho')}>
+      <button onClick={() => sendDataToParent('Dados do Filhosss')}>
         Enviar dados para o pai
       </button>
     </div>
