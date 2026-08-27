@@ -1,24 +1,12 @@
-
-import ButtonCSS from './components/aula06/ButtonCSS';
-import ButtonInline from './components/aula06/ButtonInline';
-import ButtonStyled from './components/aula06/ButtonStyled';
+import ThemeCard from './components/aula07/deverDeCasa/ThemeCard';
 
 function App() {
   return (
     <div>
-      <h1>Botão com CSS Externo</h1>
-      <ButtonCSS label="CSS Externo" />
-
-      <h1>Botão com Inline Styles</h1>
-      <ButtonInline label="Primário" primary="primary" />
-      <ButtonInline label="Secundário" />
-
-      <h1>Botão com Styled Components</h1>
-      <ButtonStyled label="Primário" primary="primary"/>
-      <ButtonStyled label="Secundário" primary="primary"/>
+        <ThemeCard title="Tema Dark" description="Essa é a descrição com thema sem passar o parametro light, ou seja, dark" />
+        <ThemeCard title="Tema Light" description="essa é a descricao do com theme passando 'light' " theme='light'/>
     </div>
   );
 }
 
 export default App;
-          

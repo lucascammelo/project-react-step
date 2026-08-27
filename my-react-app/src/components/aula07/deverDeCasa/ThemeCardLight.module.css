@@ -1,0 +1,18 @@
+
+.card {
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 10px;
+    box-shadow: 10px;
+    padding: 10px;
+    transition: 0.3;
+}
+.title {
+    font-size: 20px;
+    color: #0e0d0d;
+    background-color: #ebd573;
+}
+.description {
+    color: #0e0d0d;
+
+}
