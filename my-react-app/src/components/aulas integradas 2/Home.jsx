@@ -7,9 +7,7 @@ function Home() {
 
 
     useEffect(() => {
-        axios
-            .get('https://projeto-node-step-t5i1.vercel.app/produtos')
-
+        axios.get('https://projeto-node-step-t5i1.vercel.app/produtos')
             // "then" - quando a resposta chegar, faça isso...
             .then((response) => {
                 setProdutos(response.data);// o 'data' é especifico do AXIOS, é o que contem o conteudo da api
@@ -23,7 +21,7 @@ function Home() {
                 {produtos.map( (produtoMap) => (
 
                     <li key={produtoMap.id}>
-                        {produtoMap.nome} - {produtoMap.preco} - {produtoMap.descricao} - {produtoMap.avaliacao.nota}
+                        {produtoMap.nome} - {produtoMap.preco} - {produtoMap.descricao} - {produtoMap.avaliacao.nota} <button>Deletar</button><button>Editar</button>
                     </li>
                 ) )}
             </ul>
