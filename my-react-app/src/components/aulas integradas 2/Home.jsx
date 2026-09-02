@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
     const [produtos, setProdutos] = useState([]);
+
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -20,8 +23,9 @@ function Home() {
             <ul>
                 {produtos.map( (produtoMap) => (
 
-                    <li key={produtoMap.id}>
-                        {produtoMap.nome} - {produtoMap.preco} - {produtoMap.descricao} - {produtoMap.avaliacao.nota} <button>Deletar</button><button>Editar</button>
+                    <li key={produtoMap._id}>
+                        {produtoMap.nome} - {produtoMap.preco} - {produtoMap.descricao} - {produtoMap.avaliacao.nota} <button onClick={() => navigate(`/DeletarProduto/${produtoMap._id}`)}>Deletar</button>
+                        <button onClick={() => navigate(`/EditarProduto/${produtoMap._id}`)}>Editar</button>
                     </li>
                 ) )}
             </ul>

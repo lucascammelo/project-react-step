@@ -7,6 +7,7 @@ import Registrar from './components/aulas integradas 2/Registrar';
 import CriarProduto from './components/aulas integradas 2/CriarProduto';
 import EditarProduto from './components/aulas integradas 2/EditarProduto';
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,7 +17,8 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/registrar" element={<Registrar />} />
         <Route path="/CriarProduto" element={<CriarProduto />} />
-        <Route path="/EditarProduto" element={<EditarProduto />}  />
+        <Route path="/EditarProduto/:id" element={<EditarProduto />}  />
+        
       </Routes>
     </BrowserRouter>
 

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios"
+import { useParams } from "react-router-dom";
 
-function EditarProduto{
+function EditarProduto() {
 
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState('');
@@ -11,8 +12,27 @@ function EditarProduto{
     const [nota, setNota] = useState('');
     const [quantidade, setQuantidade] = useState('');
 
-    const cadastrarProduto = () => {
-        axios.post('https://projeto-node-step-t5i1.vercel.app/produto/:id',
+    const {id} = useParams();
+
+
+    useEffect( () => {
+        axios.get(`https://projeto-node-step-t5i1.vercel.app/produtos/${id}`)
+        .then((response) => {
+            const produto = response.data;
+            setNome(produto.nome);
+            setPreco(produto.preco);
+            setDescricao(produto.descricao);
+            setCategoria(produto.categoria);
+            setImagem(produto.imagem);
+            setNota(produto.avaliacao.nota);
+            setQuantidade(produto.avaliacao.quantidade);
+        })
+    }, [id]);
+
+    const editarProduto = () => {
+        
+
+        axios.put(`https://projeto-node-step-t5i1.vercel.app/produtos/${id}`,
             {
                 nome: nome,
                 preco: preco,
@@ -27,18 +47,54 @@ function EditarProduto{
                 }
             }
         )
-        .then((response) => {
-            console.log("Produto editado com sucesso", response.data)
-        })
+            .then((response) => {
+                console.log("Produto editado com sucesso", response.data)
+            })
     }
-
-
-
-
     return (
+        <>
+            <h1>Editar Produto</h1>
 
-);
+            <div>
+                <label htmlFor="">Nome</label>
+                <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Preço</label>
+                <input type="text" value={preco} onChange={(e) => setPreco(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Descrição</label>
+                <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Categoria</label>
+                <input type="text" value={categoria} onChange={(e) => setCategoria(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Imagem</label>
+                <input type="text" value={imagem} onChange={(e) => setImagem(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Nota</label>
+                <input type="text" value={nota} onChange={(e) => setNota(e.target.value)} />
+            </div>
+
+            <div>
+                <label htmlFor="">Quantidade</label>
+                <input type="text" value={quantidade} onChange={(e) => setQuantidade(e.target.value)} />
+            </div>
+
+            <button type="button" onClick={editarProduto}>Salvar Alterações </button>
+
+        </>
+
+    );
 
 }
-
 export default EditarProduto;
