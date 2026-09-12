@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import './CriarProduto.css';
+
 
 function CriarProduto(){
 
@@ -35,7 +37,7 @@ const cadastrarProduto = () => {
 
 return(
 
-    <form action="">
+    <form action="" className="form">
 
         <h1>Cadastrar Produto</h1>
 

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './Home.css';
+
 
 
 function Home() {
@@ -40,7 +42,7 @@ function Home() {
     }, [])
 
     return (
-        <div>
+        <div className="produtos">
             <h1>LIsta de Produtos</h1>
             <ul>
                 {produtos.map((produtoMap) => (

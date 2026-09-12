@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { useParams } from "react-router-dom";
+import './EditarProduto.css';
 
 function EditarProduto() {
 
@@ -52,7 +53,7 @@ function EditarProduto() {
             })
     }
     return (
-        <>
+        <div className="form">
             <h1>Editar Produto</h1>
 
             <div>
@@ -92,7 +93,7 @@ function EditarProduto() {
 
             <button type="button" onClick={editarProduto}>Salvar Alterações </button>
 
-        </>
+        </div>
 
     );
 

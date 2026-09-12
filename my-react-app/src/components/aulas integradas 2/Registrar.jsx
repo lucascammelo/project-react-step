@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import './Registrar.css';
 
 function Registrar(){
 
@@ -7,6 +8,8 @@ const [nome, setNome] = useState('');
 const [email, setEmail] = useState('');
 const [role, setRole] = useState('');
 const [senha, setSenha] = useState('');
+const [mensagem, setMensagem] = useState('');
+
 
 
 
@@ -35,8 +38,10 @@ const cadastrarUsuario = () => {
  
 
 return (
+  
 
-    <form action="">
+    <form action="" className="form">
+        {mensagem && <p>{mensagem}</p>}
 
         <div>
             <label >Nome</label>
