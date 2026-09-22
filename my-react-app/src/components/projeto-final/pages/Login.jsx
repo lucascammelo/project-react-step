@@ -1,12 +1,7 @@
 import LoginForm from '../organisms/LoginForm';
-import PageLayout from '../templates/PageLayout';
 
 const Login = () => {
-  return (
-    <PageLayout>
-      <LoginForm />
-    </PageLayout>
-  );
+  return <LoginForm />;
 };
 
 export default Login;
