@@ -1,16 +1,40 @@
-# React + Vite
+# Projeto Final React - Step
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de cadastro e gerenciamento de produtos, com login de usuário, feito como Projeto Final do módulo de React do curso Step.
 
-Currently, two official plugins are available:
+## Vídeo de apresentação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://youtu.be/tIyzoyXw9N8
 
-## React Compiler
+## Deploy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Aplicação publicada na Vercel: https://project-react-step-psi.vercel.app/
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Cadastro e login de usuário
+- Rotas protegidas (só acessa logado)
+- Listagem de produtos com filtro de busca (Autocomplete do Material UI)
+- Criar, editar e deletar produto
+- Tema claro/escuro (Context API)
+
+## Organização do código
+
+O código do projeto final segue a metodologia **Atomic Design**, em `src/components/projeto-final/`:
+
+- `atoms/` — Button, Input, Label, Select
+- `context/` — ThemeContext (tema claro/escuro)
+- `molecules/` — FormField
+- `organisms/` — Header, LoginForm, ProductFilter, ProductForm, ProductList, RegistrarForm
+- `pages/` — CriarProduto, EditarProduto, Home, Login, Registrar
+- `routes/` — PrivateRoute (proteção de rotas)
+- `templates/` — PageLayout
+
+As aulas e exercícios anteriores do curso ficam em `src/components/aulas/`.
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
