@@ -19,6 +19,7 @@ const EditarProduto = () => {
 
   const [mensagem, setMensagem] = useState('');
   const [erro, setErro] = useState('');
+  const [erros, setErros] = useState({});
 
   useEffect(() => {
     axios.get(`https://projeto-node-step-t5i1.vercel.app/produtos/${id}`)
@@ -44,7 +45,39 @@ const EditarProduto = () => {
     setProduto({ ...produto, [name]: value });
   };
 
+  const validar = () => {
+    const novosErros = {};
+
+    if (!String(produto.nome).trim()) novosErros.nome = 'Nome é obrigatório';
+    if (!String(produto.descricao).trim()) novosErros.descricao = 'Descrição é obrigatória';
+    if (!String(produto.categoria).trim()) novosErros.categoria = 'Categoria é obrigatória';
+    if (!String(produto.imagem).trim()) novosErros.imagem = 'Imagem é obrigatória';
+
+    if (!String(produto.preco).trim()) {
+      novosErros.preco = 'Preço é obrigatório';
+    } else if (isNaN(Number(produto.preco))) {
+      novosErros.preco = 'Preço precisa ser um número';
+    }
+
+    if (!String(produto.nota).trim()) {
+      novosErros.nota = 'Nota é obrigatória';
+    } else if (isNaN(Number(produto.nota))) {
+      novosErros.nota = 'Nota precisa ser um número';
+    }
+
+    if (!String(produto.quantidade).trim()) {
+      novosErros.quantidade = 'Quantidade é obrigatória';
+    } else if (isNaN(Number(produto.quantidade))) {
+      novosErros.quantidade = 'Quantidade precisa ser um número';
+    }
+
+    setErros(novosErros);
+    return Object.keys(novosErros).length === 0;
+  };
+
   const editarProduto = () => {
+    if (!validar()) return;
+
     axios.put(`https://projeto-node-step-t5i1.vercel.app/produtos/${id}`, {
       nome: produto.nome,
       preco: produto.preco,
@@ -76,6 +109,7 @@ const EditarProduto = () => {
         textoBotao="Salvar Alterações"
         mensagem={mensagem}
         erro={erro}
+        erros={erros}
       />
     </PageLayout>
   );
